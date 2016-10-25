@@ -1,0 +1,1063 @@
+<?xml version="1.0"?>
+<robot name="HermesIII">
+	<!-- Creamos la base -->
+	<link name="base_link">
+		<visual>
+			<origin xyz="0 0 0.3" rpy="0 0 0"/>
+			<geometry>
+				<!--<mesh scale="0.025 0.025 0.025" filename="package://Hermes3/model/stl/Base.stl"/>-->
+				<mesh filename="package://Hermes3/model/dae/Base.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0.3" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Base.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="2.0"/>
+			<inertia ixx="9.754e-3" iyy="17.63e-3" izz="9.754e-3"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+	<!-- Creamos las ruedas -->
+	<link name="wheel_front_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/wheel.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/wheel.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.1"/>
+			<inertia ixx="1.7758e-5" iyy="1.7758e-5" izz="31.26e-6"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+	<link name="wheel_back_link">
+		<visual>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/wheel.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/wheel.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.1"/>
+			<inertia ixx="1.7758e-5" iyy="1.7758e-5" izz="31.26e-6"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+	<link name="wheel_right_link">
+		<visual>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/wheel.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/wheel.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.1"/>
+			<inertia ixx="1.7758e-5" iyy="1.7758e-5" izz="31.26e-6"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+	<link name="wheel_left_link">
+		<visual>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/wheel.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/wheel.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.1"/>
+			<inertia ixx="1.7758e-5" iyy="1.7758e-5" izz="31.26e-6"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+<!-- Creamos cilindros rueda front -->
+	<link name="cylinderN_wheel_front_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+	
+	<link name="cylinderNE_wheel_front_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+	<link name="cylinderE_wheel_front_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+	<link name="cylinderSE_wheel_front_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+	<link name="cylinderS_wheel_front_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+	<link name="cylinderSO_wheel_front_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+	<link name="cylinderO_wheel_front_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+	<link name="cylinderNO_wheel_front_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+<!-- FIN BLOQUE DE CILINDROS RUEDA FRONT -->
+
+<!-- Creamos cilindros rueda back -->
+	<link name="cylinderN_wheel_back_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+	
+	<link name="cylinderNE_wheel_back_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+	<link name="cylinderE_wheel_back_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+	<link name="cylinderSE_wheel_back_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+	<link name="cylinderS_wheel_back_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+	<link name="cylinderSO_wheel_back_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+	<link name="cylinderO_wheel_back_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+	<link name="cylinderNO_wheel_back_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+<!-- FIN BLOQUE DE CILINDROS RUEDA BACK -->
+
+<!-- Creamos cilindros rueda right -->
+	<link name="cylinderN_wheel_right_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+	
+	<link name="cylinderNE_wheel_right_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+	<link name="cylinderE_wheel_right_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+	<link name="cylinderSE_wheel_right_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+	<link name="cylinderS_wheel_right_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+	<link name="cylinderSO_wheel_right_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+	<link name="cylinderO_wheel_right_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+	<link name="cylinderNO_wheel_right_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+<!-- FIN BLOQUE DE CILINDROS RUEDA RIGHT -->
+
+<!-- Creamos cilindros rueda left -->
+	<link name="cylinderN_wheel_left_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+	
+	<link name="cylinderNE_wheel_left_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+	<link name="cylinderE_wheel_left_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+	<link name="cylinderSE_wheel_left_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+	<link name="cylinderS_wheel_left_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+	<link name="cylinderSO_wheel_left_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+	<link name="cylinderO_wheel_left_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+	<link name="cylinderNO_wheel_left_link">
+		<visual>
+			<origin xyz="0 0 0" />
+			<geometry>
+				 <mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</visual>
+		<collision>
+			<contact_coefficients mu= "100.0" />
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://Hermes3/model/dae/Cilindro.dae"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="0.001"/>
+			<inertia ixx="1.0583e-8" iyy="1.0583e-8" izz="4.5e-9"
+			ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+
+<!-- FIN BLOQUE DE CILINDROS RUEDA LEFT -->
+
+
+<!-- Unimos la base con las ruedas -->
+	<joint name="base_to_front_wheel" type="continuous">
+		<axis xyz="1 0 0"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="base_link"/>
+    		<child link="wheel_front_link"/>
+    		<!-- <origin xyz="0 0 0.2"/> -->
+		<origin xyz="0 -1.18 0.2" rpy="0 0 -1.57"/>
+  	</joint>
+
+  	<joint name="base_to_back_wheel" type="continuous">
+  		<axis xyz="1 0 0"/>
+    		<parent link="base_link"/>
+    		<child link="wheel_back_link"/>
+    		<origin xyz="0 1.18 0.2" rpy="0 0 1.57"/>
+  	</joint>
+
+  	<joint name="base_to_right_wheel" type="continuous">
+  		<axis xyz="1 0 0"/>
+    		<parent link="base_link"/>
+    		<child link="wheel_right_link"/>
+    		<origin xyz="-1.18 0 0.2" rpy="0 0 -3.14"/>
+  	</joint>
+
+  	<joint name="base_to_left_wheel" type="continuous">
+  		<axis xyz="1 0 0"/>
+    		<parent link="base_link"/>
+    		<child link="wheel_left_link"/>
+    		<origin xyz="1.18 0 0.2" rpy="0 0 0"/>
+  	</joint>
+
+<!-- UNIMOS LOS CILINDROS CON LA RUEDA FRONT -->
+	<joint name="cylinderN_to_front_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_front_link"/>
+    		<child link="cylinderN_wheel_front_link"/>
+		<origin xyz="0.065 0 0.245" rpy="-1.57 0 0"/>
+  	</joint>
+
+	<joint name="cylinderNE_to_front_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_front_link"/>
+    		<child link="cylinderNE_wheel_front_link"/>
+		<origin xyz="0.065 0.178 0.178" rpy="0.785 0 0"/>
+  	</joint>
+
+	<joint name="cylinderE_to_front_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_front_link"/>
+    		<child link="cylinderE_wheel_front_link"/>
+		<origin xyz="0.065 0.245 0" rpy="0 0 0"/>
+  	</joint>
+
+	<joint name="cylinderSE_to_front_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_front_link"/>
+    		<child link="cylinderSE_wheel_front_link"/>
+		<origin xyz="0.065 0.178 -0.178" rpy="-0.785 0 0"/>
+  	</joint>
+
+	<joint name="cylinderS_to_front_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_front_link"/>
+    		<child link="cylinderS_wheel_front_link"/>
+		<origin xyz="0.065 0 -0.245" rpy="-1.57 0 0"/>
+  	</joint>
+
+	<joint name="cylinderSO_to_front_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_front_link"/>
+    		<child link="cylinderSO_wheel_front_link"/>
+		<origin xyz="0.065 -0.178 -0.178" rpy="0.785 0 0"/>
+  	</joint>
+
+	<joint name="cylinderO_to_front_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_front_link"/>
+    		<child link="cylinderO_wheel_front_link"/>
+		<origin xyz="0.065 -0.245 0" rpy="0 0 0"/>
+  	</joint>
+
+	<joint name="cylinderNO_to_front_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_front_link"/>
+    		<child link="cylinderNO_wheel_front_link"/>
+		<origin xyz="0.065 -0.178 0.178" rpy="-0.785 0 0"/>
+  	</joint>
+
+<!-- UNIMOS LOS CILINDROS CON LA RUEDA BACK -->
+	<joint name="cylinderN_to_back_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_back_link"/>
+    		<child link="cylinderN_wheel_back_link"/>
+		<origin xyz="0.065 0 0.235" rpy="-1.57 0 0"/>
+  	</joint>
+
+	<joint name="cylinderNE_to_back_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_back_link"/>
+    		<child link="cylinderNE_wheel_back_link"/>
+		<origin xyz="0.065 0.168 0.168" rpy="0.785 0 0"/>
+  	</joint>
+
+	<joint name="cylinderE_to_back_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_back_link"/>
+    		<child link="cylinderE_wheel_back_link"/>
+		<origin xyz="0.065 0.235 0" rpy="0 0 0"/>
+  	</joint>
+
+	<joint name="cylinderSE_to_back_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_back_link"/>
+    		<child link="cylinderSE_wheel_back_link"/>
+		<origin xyz="0.065 0.168 -0.168" rpy="-0.785 0 0"/>
+  	</joint>
+
+	<joint name="cylinderS_to_back_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_back_link"/>
+    		<child link="cylinderS_wheel_back_link"/>
+		<origin xyz="0.065 0 -0.235" rpy="-1.57 0 0"/>
+  	</joint>
+
+	<joint name="cylinderSO_to_back_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_back_link"/>
+    		<child link="cylinderSO_wheel_back_link"/>
+		<origin xyz="0.065 -0.168 -0.168" rpy="0.785 0 0"/>
+  	</joint>
+
+	<joint name="cylinderO_to_back_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_back_link"/>
+    		<child link="cylinderO_wheel_back_link"/>
+		<origin xyz="0.065 -0.235 0" rpy="0 0 0"/>
+  	</joint>
+
+	<joint name="cylinderNO_to_back_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_back_link"/>
+    		<child link="cylinderNO_wheel_back_link"/>
+		<origin xyz="0.065 -0.168 0.168" rpy="-0.785 0 0"/>
+  	</joint>
+
+<!-- UNIMOS LOS CILINDROS CON LA RUEDA RIGHT-->
+	<joint name="cylinderN_to_right_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_right_link"/>
+    		<child link="cylinderN_wheel_right_link"/>
+		<origin xyz="0.065 0 0.235" rpy="-1.57 0 0"/>
+  	</joint>
+
+	<joint name="cylinderNE_to_right_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_right_link"/>
+    		<child link="cylinderNE_wheel_right_link"/>
+		<origin xyz="0.065 0.168 0.168" rpy="0.785 0 0"/>
+  	</joint>
+
+	<joint name="cylinderE_to_right_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_right_link"/>
+    		<child link="cylinderE_wheel_right_link"/>
+		<origin xyz="0.065 0.235 0" rpy="0 0 0"/>
+  	</joint>
+
+	<joint name="cylinderSE_to_right_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_right_link"/>
+    		<child link="cylinderSE_wheel_right_link"/>
+		<origin xyz="0.065 0.168 -0.168" rpy="-0.785 0 0"/>
+  	</joint>
+
+	<joint name="cylinderS_to_right_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_right_link"/>
+    		<child link="cylinderS_wheel_right_link"/>
+		<origin xyz="0.065 0 -0.235" rpy="-1.57 0 0"/>
+  	</joint>
+
+	<joint name="cylinderSO_to_right_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_right_link"/>
+    		<child link="cylinderSO_wheel_right_link"/>
+		<origin xyz="0.065 -0.168 -0.168" rpy="0.785 0 0"/>
+  	</joint>
+
+	<joint name="cylinderO_to_right_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_right_link"/>
+    		<child link="cylinderO_wheel_right_link"/>
+		<origin xyz="0.065 -0.235 0" rpy="0 0 0"/>
+  	</joint>
+
+	<joint name="cylinderNO_to_right_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_right_link"/>
+    		<child link="cylinderNO_wheel_right_link"/>
+		<origin xyz="0.065 -0.168 0.168" rpy="-0.785 0 0"/>
+  	</joint>
+
+<!-- UNIMOS LOS CILINDROS CON LA RUEDA LEFT-->
+	<joint name="cylinderN_to_left_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_left_link"/>
+    		<child link="cylinderN_wheel_left_link"/>
+		<origin xyz="0.065 0 0.235" rpy="-1.57 0 0"/>
+  	</joint>
+
+	<joint name="cylinderNE_to_left_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_left_link"/>
+    		<child link="cylinderNE_wheel_left_link"/>
+		<origin xyz="0.065 0.168 0.168" rpy="0.785 0 0"/>
+  	</joint>
+
+	<joint name="cylinderE_to_left_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_left_link"/>
+    		<child link="cylinderE_wheel_left_link"/>
+		<origin xyz="0.065 0.235 0" rpy="0 0 0"/>
+  	</joint>
+
+	<joint name="cylinderSE_to_left_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_left_link"/>
+    		<child link="cylinderSE_wheel_left_link"/>
+		<origin xyz="0.065 0.168 -0.168" rpy="-0.785 0 0"/>
+  	</joint>
+
+	<joint name="cylinderS_to_left_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_left_link"/>
+    		<child link="cylinderS_wheel_left_link"/>
+		<origin xyz="0.065 0 -0.235" rpy="-1.57 0 0"/>
+  	</joint>
+
+	<joint name="cylinderSO_to_left_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_left_link"/>
+    		<child link="cylinderSO_wheel_left_link"/>
+		<origin xyz="0.065 -0.168 -0.168" rpy="0.785 0 0"/>
+  	</joint>
+
+	<joint name="cylinderO_to_left_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_left_link"/>
+    		<child link="cylinderO_wheel_left_link"/>
+		<origin xyz="0.065 -0.235 0" rpy="0 0 0"/>
+  	</joint>
+
+	<joint name="cylinderNO_to_left_wheel" type="continuous">
+		<axis xyz="0 0 1"/> <!--Como elegimos continous, con axis decimos sobre que eje gira-->
+    		<parent link="wheel_left_link"/>
+    		<child link="cylinderNO_wheel_left_link"/>
+		<origin xyz="0.065 -0.168 0.168" rpy="-0.785 0 0"/>
+  	</joint>
+
+
+<!-- PARA GAZEBO -->
+<gazebo>
+	<plugin name="differential_drive_controller"
+			filename="libgazebo_ros_diff_drive.so">
+		<leftJoint>base_to_left_wheel</leftJoint>
+		<rightJoint>base_to_right_wheel</rightJoint>
+		<robotBaseFrame>base_link</robotBaseFrame>
+		<wheelSeparation>0.4</wheelSeparation>
+		<wheelDiameter>0.04</wheelDiameter>
+		<publishWheelJointState>true</publishWheelJointState>
+	</plugin>
+</gazebo>
+  	
+</robot>

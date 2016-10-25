@@ -1,0 +1,8 @@
+prefix=/home/turtlebot/Programming_Robots_with_ROS/HermesIII/install
+
+Name: hermesIII
+Description: Description of hermesIII
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/turtlebot/Programming_Robots_with_ROS/HermesIII/install/lib 
+Requires: 

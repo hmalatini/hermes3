@@ -1,0 +1,13 @@
+Base --> 23 x 23 x 4.5 cm
+El radio de las esquinas de la base --> 8 cm
+
+Parte de arriba de la base --> 16 x 16 x 3 cm
+El radio de las esquinas de la parte de arriba de la base --> 6 cm
+
+Rueda:
+	Radio : 2,5 cm
+	Ancho: 1,6 cm
+	Huecos para los cositos giratorios: 1,2 x 1,2 cm
+	Largo de los cositos giratorios: 1 cm 
+	Ancho de los cositos giratorios: 6 mm
+	Radio de los cositos giratorios: 3 mm
