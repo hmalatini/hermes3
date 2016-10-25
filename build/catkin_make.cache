@@ -1,0 +1,2 @@
+hermesIII
+-DCATKIN_DEVEL_PREFIX=/home/turtlebot/Programming_Robots_with_ROS/HermesIII/devel -DCMAKE_INSTALL_PREFIX=/home/turtlebot/Programming_Robots_with_ROS/HermesIII/install -G Unix Makefiles
