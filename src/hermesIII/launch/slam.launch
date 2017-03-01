@@ -2,7 +2,7 @@
 <!-- Entry point for using OpenNI devices -->
 <launch>
 	<!-- INCLUIMOS EL LAUNCH-FILE DEL ALGORITMO ORB SLAM V2 RGBD, QUE A SU VEZ DENTRO DE ESTE SE INCLUYE AL LAUNCH-FILE DE FREENECT-->
-	<include file="$(find freenect_launch)/launch/kinect_orbslam2.launch"/>
+	<include file="$(find hermesIII)/launch/kinect_orbslam2.launch"/>
 	
 	<!-- EJECUTAMOS LO QUE TRANSFORMA DE DATOS DE PROFUNDIDAD A TIPO SCAN -->
 	<node name="depthimage_to_laserscan" pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" >

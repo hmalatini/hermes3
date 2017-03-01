@@ -62,3 +62,4 @@ stereo_euroc
 stereo_kitti
 config.h
 ORBvoc.txt
+KeyFrameTrajectory.txt
