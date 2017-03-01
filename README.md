@@ -10,3 +10,5 @@ Para empiezar a utilizar este proyecto:
 Luego, lo que hacemos es agregar esto al archivo .bashrc para que sea conocido como paquete de ROS. Para eso (lo hacemos para usuario como y para root):
 - user@hostname$ echo "source ~/wanderbot_ws/devel/setup.bash" >> ~/.bashrc
 - user@hostname$ source ~/.bashrc
+
+FALTAN EL SCRIPT PARA COMPILACION DE ALGORITMO DE SLAM

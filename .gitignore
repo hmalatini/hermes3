@@ -48,3 +48,17 @@ qtcreator-*
 
 # Catkin custom files
 CATKIN_IGNORE
+
+# Ignore ORBSLAM2 COMPILE FILES
+mono_euroc
+mono_kitti
+mono_tum
+rgbd_tum
+Mono
+MonoAR
+RGBD
+Stereo
+stereo_euroc
+stereo_kitti
+config.h
+ORBvoc.txt
