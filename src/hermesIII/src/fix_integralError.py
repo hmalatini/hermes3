@@ -20,7 +20,7 @@ oldEffortFront = 0
 oldEffortBack = 0
 
 def comprobarEffortLeft(data):
-	if(data == oldEffortLeft):
+	if( abs(data - oldEffortLeft) <= 0.0000001 ):
 		contadorLeft++
 	else:
 		oldEffortLeft = data
@@ -30,7 +30,7 @@ def comprobarEffortLeft(data):
 		pubEnableLeft.publish(False)
 
 def comprobarEffortRight(data):
-	if(data == oldEffortRight):
+	if( abs(data - oldEffortRight) <= 0.0000001 ):
 		contadorRight++
 	else:
 		oldEffortRight = data
@@ -40,7 +40,7 @@ def comprobarEffortRight(data):
 		pubEnableRight.publish(False)
 
 def comprobarEffortFront(data):
-	if(data == oldEffortFront):
+	if( abs(data - oldEffortFront) <= 0.0000001 ):
 		contadorFront++
 	else:
 		oldEffortFront = data
@@ -50,7 +50,7 @@ def comprobarEffortFront(data):
 		pubEnableFront.publish(False)
 
 def comprobarEffortBack(data):
-	if(data == oldEffortBack):
+	if( abs(data - oldEffortBack) <= 0.0000001 ):
 		contadorBack++
 	else:
 		oldEffortBack = data
