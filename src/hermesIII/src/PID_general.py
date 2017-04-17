@@ -43,12 +43,7 @@ def setDesiredVel(data):
                     menor = True
                     break
 
-    if(menor):
-        pubEnableLeft.publish(False)
-        pubEnableRigth.publish(False)
-        pubEnableFront.publish(False)
-        pubEnableBack.publish(False)
-    else:
+    if(!menor):
         pubEnableLeft.publish(True)
         pubEnableRigth.publish(True)
         pubEnableFront.publish(True)
