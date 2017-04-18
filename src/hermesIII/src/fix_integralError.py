@@ -19,41 +19,45 @@ oldEffortRight = 0
 oldEffortFront = 0
 oldEffortBack = 0
 
-def comprobarEffortLeft(data):
-	if( abs(data - oldEffortLeft) <= 0.0000001 ):
-		contadorLeft++
+def comprobarEffortLeft(value):
+	global oldEffortLeft, contadorLeft
+	if( (abs(value.data - oldEffortLeft) <= 0.0001) and (abs(oldEffortLeft) < 1) ):
+		contadorLeft += 1
 	else:
-		oldEffortLeft = data
+		oldEffortLeft = value.data
 		contadorLeft = 0
 
 	if(contadorLeft >= 3):
 		pubEnableLeft.publish(False)
 
-def comprobarEffortRight(data):
-	if( abs(data - oldEffortRight) <= 0.0000001 ):
-		contadorRight++
+def comprobarEffortRight(value):
+	global oldEffortRight, contadorRight
+	if( (abs(value.data - oldEffortRight) <= 0.0001) and (abs(oldEffortRight) < 1) ):
+		contadorRight += 1
 	else:
-		oldEffortRight = data
+		oldEffortRight = value.data
 		contadorRight = 0
 
 	if(contadorRight >= 3):
 		pubEnableRight.publish(False)
 
-def comprobarEffortFront(data):
-	if( abs(data - oldEffortFront) <= 0.0000001 ):
-		contadorFront++
+def comprobarEffortFront(value):
+	global oldEffortFront, contadorFront
+	if( (abs(value.data - oldEffortFront) <= 0.0001) and (abs(oldEffortFront) < 1) ):
+		contadorFront += 1
 	else:
-		oldEffortFront = data
+		oldEffortFront = value.data
 		contadorFront = 0
 
 	if(contadorFront >= 3):
 		pubEnableFront.publish(False)
 
-def comprobarEffortBack(data):
-	if( abs(data - oldEffortBack) <= 0.0000001 ):
-		contadorBack++
+def comprobarEffortBack(value):
+	global oldEffortBack, contadorBack
+	if( (abs(value.data - oldEffortBack) <= 0.0001) and (abs(oldEffortBack) < 1) ):
+		contadorBack += 1
 	else:
-		oldEffortBack = data
+		oldEffortBack = value.data
 		contadorBack = 0
 
 	if(contadorBack >= 3):

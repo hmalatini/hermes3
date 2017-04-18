@@ -29,7 +29,7 @@ def setDesiredVel(data):
             velMotores[fila][0] += matrizMotores[fila][columna] * vectorDeseado[columna][0]
     
     menor = False
-    if(abs(data.linear.x) != abs(data.linear.y)):
+    if(abs(data.linear.x) != abs(data.linear.y) and (data.linear.x) != 0 and (data.linear.y)):
         for i in range(0,4):
             print("IF num: " + str(i) + " vel: " + str(velMotores[i][0]))
             if( ((velMotores[i][0] > (velMinima*-1)) and (velMotores[i][0] < velMinima)) ):
@@ -43,7 +43,7 @@ def setDesiredVel(data):
                     menor = True
                     break
 
-    if(!menor):
+    if(not menor):
         pubEnableLeft.publish(True)
         pubEnableRigth.publish(True)
         pubEnableFront.publish(True)
