@@ -6,7 +6,7 @@ from std_msgs.msg import UInt8
 def talker():
     pub = rospy.Publisher('send_velocity', UInt8, queue_size=10)
     rospy.init_node('velocity_request', anonymous=True)
-    rate = rospy.Rate(10) # 10hz
+    rate = rospy.Rate(30) # 10hz
     while not rospy.is_shutdown():
         pub.publish(1)
         rate.sleep()

@@ -15,7 +15,7 @@ pubEnableRigth = rospy.Publisher('/right_wheel/right_wheel_pid_activate', Bool, 
 pubEnableFront = rospy.Publisher('/front_wheel/front_wheel_pid_activate', Bool, queue_size=10)
 pubEnableBack = rospy.Publisher('/back_wheel/back_wheel_pid_activate', Bool, queue_size=10)
 
-velMinima = 0.4
+velMinima = 0.3
 
 def setDesiredVel(data):
     #print "Me llego mensaje Twist:\n    Lineal:\n        X: ",data.linear.x,"\n        Y: ",data.linear.y,"\n        Z: ",data.linear.z,"\n    ANGULAR:\n        X: ",data.angular.x,"\n        Y: ",data.angular.y,"\n        Z: ",data.angular.z
@@ -39,7 +39,7 @@ def setDesiredVel(data):
         for i in range(0,4):
             print("ELSE num: " + str(i) + " vel: " + str(velMotores[i][0]))
             if( (velMotores[i][0] > (velMinima*-1)) and (velMotores[i][0] < velMinima) ):
-                if( (velMotores[i][0] > 0.1) and (velMotores[i][0] < -0.1) ):
+                if( (velMotores[i][0] > 0.1) or (velMotores[i][0] < -0.1) ):
                     menor = True
                     break
 

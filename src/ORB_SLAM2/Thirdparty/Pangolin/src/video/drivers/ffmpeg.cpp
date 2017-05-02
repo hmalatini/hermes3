@@ -357,74 +357,59 @@ bool FfmpegVideo::GrabNewest(unsigned char *image, bool wait)
     return GrabNext(image,wait);
 }
 
-void FfmpegConverter::ConvertContext::convert(const unsigned char* src,unsigned char* dst)
-{
-    avpicture_fill((AVPicture*)avsrc, const_cast<uint8_t*>(src) + src_buffer_offset, fmtsrc, w, h);
-    avpicture_fill((AVPicture*)avdst, const_cast<uint8_t*>(dst) + dst_buffer_offset, fmtdst, w, h);
-    sws_scale(  img_convert_ctx,
-                avsrc->data, avsrc->linesize, 0, h,
-                avdst->data, avdst->linesize         );
-}
-
 FfmpegConverter::FfmpegConverter(std::unique_ptr<VideoInterface> &videoin_, const std::string sfmtdst, FfmpegMethod method )
     :videoin(std::move(videoin_))
 {
     if( !videoin )
         throw VideoException("Source video interface not specified");
     
-    input_buffer = std::unique_ptr<unsigned char[]>(new unsigned char[videoin->SizeBytes()]);
+    if( videoin->Streams().size() != 1)
+        throw VideoException("FfmpegConverter currently only supports one input stream.");
     
-    converters.resize(videoin->Streams().size());
+    const StreamInfo instrm = videoin->Streams()[0];
     
-    dst_buffer_size = 0;
+    w = instrm.Width();
+    h = instrm.Height();
     
-    for(size_t i=0; i < videoin->Streams().size(); ++i) {
-        const StreamInfo instrm = videoin->Streams()[i];
-        
-        converters[i].w=instrm.Width();
-        converters[i].h=instrm.Height();
-        
-        converters[i].fmtdst = FfmpegFmtFromString(sfmtdst);
-        converters[i].fmtsrc = FfmpegFmtFromString(instrm.PixFormat());
-        converters[i].img_convert_ctx = sws_getContext(
-            instrm.Width(), instrm.Height(), converters[i].fmtsrc,
-            instrm.Width(), instrm.Height(), converters[i].fmtdst,
-            method, NULL, NULL, NULL
-        );
-        if(!converters[i].img_convert_ctx)
-            throw VideoException("Could not create SwScale context for pixel conversion");
-        
-        converters[i].dst_buffer_offset=dst_buffer_size;
-        converters[i].src_buffer_offset=instrm.Offset() - (unsigned char*)0;
-        //converters[i].src_buffer_offset=src_buffer_size;
-        
-        #if LIBAVUTIL_VERSION_MAJOR >= 54
-            converters[i].avsrc = av_frame_alloc();
-            converters[i].avdst = av_frame_alloc();
-        #else
-            // deprecated
-            converters[i].avsrc = avcodec_alloc_frame();
-            converters[i].avdst = avcodec_alloc_frame();
-        #endif
-        
-        const PixelFormat pxfmtdst = PixelFormatFromString(sfmtdst);
-        const StreamInfo sdst( pxfmtdst, instrm.Width(), instrm.Height(), (instrm.Width()*pxfmtdst.bpp)/8, (unsigned char*)0 + converters[i].dst_buffer_offset );
-        streams.push_back(sdst);
-        
-        
-        //src_buffer_size += instrm.SizeBytes();
-        dst_buffer_size += avpicture_get_size(converters[i].fmtdst, instrm.Width(), instrm.Height());
-    }
+    fmtsrc = FfmpegFmtFromString(instrm.PixFormat());
+    fmtdst = FfmpegFmtFromString(sfmtdst);
     
+    img_convert_ctx = sws_getContext(
+                w, h, fmtsrc,
+                w, h, fmtdst,
+                method, NULL, NULL, NULL
+                );
+    if(!img_convert_ctx)
+        throw VideoException("Could not create SwScale context for pixel conversion");
+    
+    numbytessrc=avpicture_get_size(fmtsrc, w, h);
+    numbytesdst=avpicture_get_size(fmtdst, w, h);
+    bufsrc  = new uint8_t[numbytessrc];
+    bufdst  = new uint8_t[numbytesdst];
+#if LIBAVUTIL_VERSION_MAJOR >= 54
+    avsrc = av_frame_alloc();
+    avdst = av_frame_alloc();
+#else
+    // deprecated
+    avsrc = avcodec_alloc_frame();
+    avdst = avcodec_alloc_frame();
+#endif
+    avpicture_fill((AVPicture*)avsrc,bufsrc,fmtsrc,w,h);
+    avpicture_fill((AVPicture*)avdst,bufdst,fmtdst,w,h);
+    
+    // Create output stream info
+    PixelFormat pxfmtdst = PixelFormatFromString(sfmtdst);
+    const StreamInfo sdst( pxfmtdst, w, h, (w*pxfmtdst.bpp)/8, 0 );
+    streams.push_back(sdst);
 }
 
 FfmpegConverter::~FfmpegConverter()
 {
-    for(ConvertContext&c:converters)
-    {
-        av_free(c.avsrc);
-        av_free(c.avdst);
-    }
+    sws_freeContext(img_convert_ctx);
+    delete[] bufsrc;
+    av_free(avsrc);
+    delete[] bufdst;
+    av_free(avdst);
 }
 
 void FfmpegConverter::Start()
@@ -439,7 +424,7 @@ void FfmpegConverter::Stop()
 
 size_t FfmpegConverter::SizeBytes() const
 {
-    return dst_buffer_size;
+    return numbytesdst;
 }
 
 const std::vector<StreamInfo>& FfmpegConverter::Streams() const
@@ -449,11 +434,14 @@ const std::vector<StreamInfo>& FfmpegConverter::Streams() const
 
 bool FfmpegConverter::GrabNext( unsigned char* image, bool wait )
 {
-    if( videoin->GrabNext(input_buffer.get(),wait) )
+    if( videoin->GrabNext(avsrc->data[0],wait) )
     {
-        for(ConvertContext&c:converters) {
-            c.convert(input_buffer.get(),image);
-        }
+        sws_scale(
+                    img_convert_ctx,
+                    avsrc->data, avsrc->linesize, 0, h,
+                    avdst->data, avdst->linesize
+                    );
+        memcpy(image,avdst->data[0],numbytesdst);
         return true;
     }
     return false;
@@ -461,11 +449,14 @@ bool FfmpegConverter::GrabNext( unsigned char* image, bool wait )
 
 bool FfmpegConverter::GrabNewest( unsigned char* image, bool wait )
 {
-    if( videoin->GrabNewest(input_buffer.get(),wait) )
+    if( videoin->GrabNewest(avsrc->data[0],wait) )
     {
-        for(ConvertContext&c:converters) {
-            c.convert(input_buffer.get(),image);
-        }
+        sws_scale(
+                    img_convert_ctx,
+                    avsrc->data, avsrc->linesize, 0, h,
+                    avdst->data, avdst->linesize
+                    );
+        memcpy(image,avdst->data[0],numbytesdst);
         return true;
     }
     return false;
