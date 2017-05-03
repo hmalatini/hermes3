@@ -1,0 +1,11 @@
+<launch>
+	<include file="$(find freenect_launch)/launch/freenect.launch"> 
+    	<!-- use device registration --> 
+    	<arg name="depth_registration" value="true" /> 
+    </include>
+
+    <include file="$(find rtabmap_ros)/launch/rtabmap.launch"></include>
+
+    <include file="$(find hermesIII)/launch/rtabmap_odometry.launch"></include>
+
+</launch>
