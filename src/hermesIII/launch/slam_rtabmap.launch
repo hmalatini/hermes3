@@ -14,4 +14,5 @@
     <node pkg="tf" type="static_transform_publisher" name="base_to_camera" args="0.0 0.0 0.0 0.0 0.0 0.0 /base_link /camera_link 100" />
 
     <include file="$(find hermesIII)/launch/rtabmap_odometry.launch"></include>
+    <include file="$(find hermesIII)/launch/navigation.launch"></include>
 </launch>
