@@ -1,0 +1,5 @@
+<launch>
+    <include file="$(find hermesIII)/launch/slam_rtabmap.launch"></include>
+    <include file="$(find hermesIII)/launch/pid.launch"></include>
+    <include file="$(find hermesIII)/launch/xbox360_teleop.launch"></include>
+</launch>
