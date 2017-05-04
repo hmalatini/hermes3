@@ -13,5 +13,5 @@
 
     <include file="$(find hermesIII)/launch/rtabmap_odometry.launch"></include>
 
-    <!-- <include file="$(find hermesIII)/launch/navigation.launch"></include> -->
+    <include file="$(find hermesIII)/launch/navigation.launch"></include>
 </launch>
