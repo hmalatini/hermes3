@@ -21,7 +21,7 @@ oldEffortBack = 0
 
 def comprobarEffortLeft(value):
 	global oldEffortLeft, contadorLeft
-	if( (abs(value.data - oldEffortLeft) <= 0.0001) and (abs(oldEffortLeft) < 1) ):
+	if( (abs(value.data - oldEffortLeft) <= 0.001) and (abs(oldEffortLeft) < 1) ):
 		contadorLeft += 1
 	else:
 		oldEffortLeft = value.data
@@ -32,7 +32,7 @@ def comprobarEffortLeft(value):
 
 def comprobarEffortRight(value):
 	global oldEffortRight, contadorRight
-	if( (abs(value.data - oldEffortRight) <= 0.0001) and (abs(oldEffortRight) < 1) ):
+	if( (abs(value.data - oldEffortRight) <= 0.001) and (abs(oldEffortRight) < 1) ):
 		contadorRight += 1
 	else:
 		oldEffortRight = value.data
@@ -43,7 +43,7 @@ def comprobarEffortRight(value):
 
 def comprobarEffortFront(value):
 	global oldEffortFront, contadorFront
-	if( (abs(value.data - oldEffortFront) <= 0.0001) and (abs(oldEffortFront) < 1) ):
+	if( (abs(value.data - oldEffortFront) <= 0.001) and (abs(oldEffortFront) < 1) ):
 		contadorFront += 1
 	else:
 		oldEffortFront = value.data
@@ -54,7 +54,7 @@ def comprobarEffortFront(value):
 
 def comprobarEffortBack(value):
 	global oldEffortBack, contadorBack
-	if( (abs(value.data - oldEffortBack) <= 0.0001) and (abs(oldEffortBack) < 1) ):
+	if( (abs(value.data - oldEffortBack) <= 0.001) and (abs(oldEffortBack) < 1) ):
 		contadorBack += 1
 	else:
 		oldEffortBack = value.data

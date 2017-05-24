@@ -1,5 +1,4 @@
 <launch>
-  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find hermesIII)/launch/config/remote_visualization.rviz">
-  		<remap from="/move_base_simple/goal" to="/rtabmap/goal"/>
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find hermesIII)/rviz/remote_visualization.rviz">
   </node>
 </launch>

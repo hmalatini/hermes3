@@ -29,6 +29,7 @@ def setDesiredVel(data):
             velMotores[fila][0] += matrizMotores[fila][columna] * vectorDeseado[columna][0]
     
     menor = False
+    """
     if(abs(data.linear.x) != abs(data.linear.y) or abs(data.angular.z) != 0):
         for i in range(0,4):
             print("IF num: " + str(i) + " vel: " + str(velMotores[i][0]))
@@ -42,7 +43,7 @@ def setDesiredVel(data):
                 if( (velMotores[i][0] > 0.1) or (velMotores[i][0] < -0.1) ):
                     menor = True
                     break
-
+    """
     if(not menor):
         pubEnableLeft.publish(True)
         pubEnableRigth.publish(True)
