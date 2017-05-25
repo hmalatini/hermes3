@@ -8,6 +8,7 @@
       <remap from="rgb/camera_info" to="/camera/depth_registered/camera_info"/>
 
       <param name="frame_id" type="string" value="base_link"/>
+      <param name="Odom/ResetCountdown"              value="1" />
     </node>
 
     <node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" args="--delete_db_on_start">
@@ -29,6 +30,7 @@
           <param name="RGBD/OptimizeFromGraphEnd" type="string" value="true"/>
           
           <param name="subscribe_scan" type="string" value="true"/>
+          <param name="Rtabmap/StartNewMapOnLoopClosure" value="true"/>
     </node>
   </group>
 </launch>
