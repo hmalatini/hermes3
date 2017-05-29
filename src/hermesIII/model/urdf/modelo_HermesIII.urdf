@@ -3,7 +3,7 @@
 	<!-- Creamos la base -->
 	<link name="base_link">
 		<visual>
-			<origin xyz="0 0 0.09" rpy="0 0 0"/>
+			<origin xyz="0 0 0.09" rpy="0 0 2.35"/>
 			<geometry>
 				<!--<mesh scale="0.2 0.2 0.2" filename="package://hermesIII/model/stl/Hermes3_2017.stl"/>-->
 				<mesh scale="0.2 0.2 0.2" filename="package://hermesIII/model/dae/Hermes3_2017.dae"/>

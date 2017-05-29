@@ -9,9 +9,9 @@
       
       <param name="frame_id" type="string" value="base_link"/>
 
-      <param name="Odom/ResetCountdown"type="string" value="20" />
+      <param name="Odom/ResetCountdown" type="string" value="100" />
       <!-- 0=Frame-to-Map (F2M) 1=Frame-to-Frame (F2F) -->
-	  <param name="Odom/Strategy" value="1"/>
+      <param name="Odom/Strategy" value="0"/>
     </node>
 
     <node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" args="--delete_db_on_start">
