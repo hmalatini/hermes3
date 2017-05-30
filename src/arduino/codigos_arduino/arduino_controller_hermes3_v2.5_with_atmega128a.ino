@@ -179,7 +179,7 @@ void publicarVelocidades( const std_msgs::UInt8& publicarVelocidades)
     vel1Anterior = vel1;
   }
 
-  if (PWM_RightWheel <= 10){ //Si el PWM de ésta rueda es un valor bajo, Arduino supone que no se mueve y envia 0 (evitando la espera de los dos overflow en las Atmega)
+  if (abs(PWM_RightWheel) <= 10){ //Si el PWM de ésta rueda es un valor bajo, Arduino supone que no se mueve y envia 0 (evitando la espera de los dos overflow en las Atmega)
     vel.data = 0;
   }
   else if (sentidoHorarioM1){
@@ -198,7 +198,7 @@ void publicarVelocidades( const std_msgs::UInt8& publicarVelocidades)
     vel2Anterior = vel2;
   }
   
-  if (PWM_BackWheel <= 10){ //Si el PWM de ésta rueda es un valor bajo, Arduino supone que no se mueve y envia 0 (evitando la espera de los dos overflow en las Atmega)
+  if (abs(PWM_BackWheel) <= 10){ //Si el PWM de ésta rueda es un valor bajo, Arduino supone que no se mueve y envia 0 (evitando la espera de los dos overflow en las Atmega)
     vel.data = 0;
   }
   else if (sentidoHorarioM2){
@@ -216,7 +216,7 @@ void publicarVelocidades( const std_msgs::UInt8& publicarVelocidades)
     vel3Anterior = vel3;
   }
   
-  if (PWM_LeftWheel <= 10){ //Si el PWM de ésta rueda es un valor bajo, Arduino supone que no se mueve y envia 0 (evitando la espera de los dos overflow en las Atmega)
+  if (abs(PWM_LeftWheel) <= 10){ //Si el PWM de ésta rueda es un valor bajo, Arduino supone que no se mueve y envia 0 (evitando la espera de los dos overflow en las Atmega)
     vel.data = 0;
   }
   else if (sentidoHorarioM3){
@@ -234,7 +234,7 @@ void publicarVelocidades( const std_msgs::UInt8& publicarVelocidades)
     vel4Anterior = vel4;
   }
   
-  if (PWM_FrontWheel <= 10){ //Si el PWM de ésta rueda es un valor bajo, Arduino supone que no se mueve y envia 0 (evitando la espera de los dos overflow en las Atmega)
+  if (abs(PWM_FrontWheel) <= 10){ //Si el PWM de ésta rueda es un valor bajo, Arduino supone que no se mueve y envia 0 (evitando la espera de los dos overflow en las Atmega)
     vel.data = 0;
   }
   else if (sentidoHorarioM4){
