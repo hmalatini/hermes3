@@ -3,7 +3,7 @@
       <param name="node_name" value="left_wheel_pid" />
       <remap from="pid_enable" to="left_wheel_pid_activate" />
       <param name="Kp" value="40.0" />
-      <param name="Ki" value="1" />
+      <param name="Ki" value="0" />
       <param name="Kd" value="5" />
       <param name="upper_limit" value="60" />
       <param name="lower_limit" value="-60" />
@@ -19,7 +19,7 @@
       <param name="node_name" value="right_wheel_pid" />
       <remap from="pid_enable" to="right_wheel_pid_activate" />
       <param name="Kp" value="40.0" />
-      <param name="Ki" value="1" />
+      <param name="Ki" value="0" />
       <param name="Kd" value="5" />
       <param name="upper_limit" value="60" />
       <param name="lower_limit" value="-60" />
@@ -34,7 +34,7 @@
       <param name="node_name" value="front_wheel_pid" />
       <remap from="pid_enable" to="front_wheel_pid_activate" />
       <param name="Kp" value="40.0" />
-      <param name="Ki" value="1" />
+      <param name="Ki" value="0" />
       <param name="Kd" value="5" />
       <param name="upper_limit" value="60" />
       <param name="lower_limit" value="-60" />
@@ -49,7 +49,7 @@
       <param name="node_name" value="back_wheel_pid" />
       <remap from="pid_enable" to="back_wheel_pid_activate" />
       <param name="Kp" value="40.0" />
-      <param name="Ki" value="1" />
+      <param name="Ki" value="0" />
       <param name="Kd" value="5" />
       <param name="upper_limit" value="60" />
       <param name="lower_limit" value="-60" />
