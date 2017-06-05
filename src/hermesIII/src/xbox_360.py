@@ -11,10 +11,6 @@ def callback(data):
 	twist.linear.x = data.axes[1]
 	twist.linear.y = data.axes[0]
 	twist.angular.z = data.axes[3]
-	print("hola")
-	print("X: " + str(twist.linear.x))
-	print("Y: " + str(twist.linear.y))
-	print("Z: " + str(twist.angular.z))
 	if(data.buttons[4] == 1):
 		toggle = True
 		pub.publish(twist)
