@@ -9,7 +9,7 @@ def callback(data):
 	global toggle
 	twist = Twist()
 	twist.linear.x = data.axes[1]
-	twist.linear.y = data.axes[0]
+	twist.linear.y = -1*data.axes[0]
 	twist.angular.z = data.axes[3]
 	if(data.buttons[4] == 1):
 		toggle = True
