@@ -8,9 +8,9 @@ toggle = False
 def callback(data):
 	global toggle
 	twist = Twist()
-	twist.linear.x = data.axes[1]
-	twist.linear.y = -1*data.axes[0]
-	twist.angular.z = data.axes[3]
+	twist.linear.x = 1.5*data.axes[1]
+	twist.linear.y = -1.5*data.axes[0]
+	twist.angular.z = 1.5*data.axes[3]
 	if(data.buttons[4] == 1):
 		toggle = True
 		pub.publish(twist)

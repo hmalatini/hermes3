@@ -9,9 +9,14 @@
       
       <param name="frame_id" type="string" value="base_link"/>
 
-      <param name="Odom/ResetCountdown" type="string" value="100" />
+      <param name="Odom/ResetCountdown" type="string" value="1" />
       <!-- 0=Frame-to-Map (F2M) 1=Frame-to-Frame (F2F) -->
-      <param name="Odom/Strategy" value="0"/>
+      <param name="Odom/Strategy" value="1"/>
+      <!-- Correspondences: 0=Features Matching, 1=Optical Flow -->
+      <param name="Vis/CorType" value="0"/>
+      <param name="GFTT/MinDistance" type="string" value="5"/> <!-- default 5 pixels -->
+      
+      <param name="Reg/Force3DoF"    value="true" />
     </node>
 
     <node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" args="--delete_db_on_start">
@@ -28,12 +33,18 @@
           <!-- RTAB-Map's parameters -->
           <param name="RGBD/AngularUpdate" type="string" value="0.01"/>
           <param name="RGBD/LinearUpdate" type="string" value="0.01"/>
-          <param name="Rtabmap/TimeThr" type="string" value="700"/>
+          <param name="Rtabmap/TimeThr" type="string" value="500"/>
           <param name="Mem/RehearsalSimilarity" type="string" value="0.45"/>
           <param name="RGBD/OptimizeFromGraphEnd" type="string" value="true"/>
           
           <param name="subscribe_scan" type="string" value="true"/>
           <param name="Rtabmap/StartNewMapOnLoopClosure" value="true"/>
+
+          <param name="Reg/Force3DoF"    value="true" />
+          <param name="Optimizer/Slam2D" value="true" /> 
+    
+          <param name="cloud_noise_filtering_radius" value="0.05"/>
+          <param name="cloud_noise_filtering_min_neighbors" value="2"/>
     </node>
   </group>
 </launch>
