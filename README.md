@@ -1,5 +1,5 @@
 # hermes3
-Proyecto Integrador Final
+## Proyecto Integrador Final
 
 Para empiezar a utilizar este proyecto:
 - Instalar las siguientes dependencias:
@@ -9,7 +9,8 @@ Para empiezar a utilizar este proyecto:
 - Poisicionarse en la carpeta hermes3 y realizar el comando "catkin_make"
 
 Luego, lo que hacemos es agregar esto al archivo .bashrc para que sea conocido como paquete de ROS. Para eso (lo hacemos para usuario como y para root):
-- user@hostname$ echo "source ~/wanderbot_ws/devel/setup.bash" >> ~/.bashrc
+- user@hostname$ echo "source ~/hermes3/devel/setup.bash" >> ~/.bashrc
+- user@hostname$ echo "export ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}:~/hermes3/src/hermesIII" >> ~/.bashrc
 - user@hostname$ source ~/.bashrc
 
 -----EXPLICAR COMO CONFIGURAR:
